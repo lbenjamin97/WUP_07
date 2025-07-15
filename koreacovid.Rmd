@@ -56,12 +56,24 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 when you look at the chart percentage wise males are dying more.About 65% of the dead column is made of males.
   
 ## Numerical results
+```{r}
+table1 <- xtabs(~result + sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
 
+when looking at the numbers 64 out of 100 males are dead and 36 out of 100 females are dead. There are more males than females.
 
 ## Inferential results 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
-
-
+based off the statistics covid is killing males more than females.
 ## Conclusions
 
+
+percentage wise there were more females in the alive section than males. Also percentage wise males dominated the dead section. This shows that the death toll was not equivalent between male and female. Therefore there was more dead seen in males than females.
